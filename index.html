@@ -1,0 +1,31 @@
+---
+layout: default
+title: Beranda
+---
+<section class="post-list">
+  <p class="intro">{{ site.description }}</p>
+
+  {% for post in paginator.posts %}
+  <article class="post-preview">
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    <p class="post-meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+      {% if post.category %} · {{ post.category }}{% endif %}
+    </p>
+    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <a class="read-more" href="{{ post.url | relative_url }}">Baca selengkapnya &rarr;</a>
+  </article>
+  {% endfor %}
+
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Sebelumnya</a>
+    {% endif %}
+    <span>Halaman {{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}">Selanjutnya &rarr;</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</section>

@@ -1,0 +1,46 @@
+title: "Catatan Verify-Or"
+description: "Tulisan pribadi berisi olahan informasi, analisis, dan pandangan pribadi dengan fakta yang dapat dipertanggungjawabkan."
+url: "https://verify-or.duckdns.org"
+baseurl: ""
+
+# Author
+author:
+  name: "Penulis"
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+timezone: Asia/Makassar
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Paginasi
+paginate: 6
+paginate_path: "/page:num/"
+
+# Plugin yang dipakai (semua didukung native oleh GitHub Pages)
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Koleksi default untuk setiap post
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# File/folder yang tidak perlu ikut di-build
+exclude:
+  - README.md
+  - LICENSE
+  - "*.gemspec"
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
