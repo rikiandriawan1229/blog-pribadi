@@ -8,3 +8,13 @@
     </nav>
   </div>
 </header>
+{% if page.url == "/" %}
+<div class="masthead">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+</div>
+<div class="ticker">
+  {% assign latest = site.posts | first %}
+  {% if latest %}Tulisan terbaru &middot; {{ latest.title }} &middot; {{ latest.date | date: "%-d %B %Y" }}{% endif %}
+</div>
+{% endif %}
