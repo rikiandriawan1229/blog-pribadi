@@ -1,20 +1,39 @@
 <header class="site-header">
   <div class="wrapper header-inner">
-    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <nav class="site-nav">
-      <a href="{{ '/' | relative_url }}">Beranda</a>
-      <a href="{{ '/about/' | relative_url }}">Tentang</a>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><path d="M3 6.5h18M3 12h18M3 17.5h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+      <span class="menu-label">Menu</span>
+    </button>
+
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="VOr, kependekan dari Verify-Or. Ke beranda">
+      {% include wordmark.html %}
+      <span class="brand-sub">Verify-Or</span>
+    </a>
+
+    <span class="header-end"></span>
   </div>
 </header>
-{% if page.url == "/" %}
-<div class="masthead">
-  <h1>{{ site.title }}</h1>
-  <p>{{ site.description }}</p>
-</div>
-<div class="ticker">
-  {% assign latest = site.posts | first %}
-  {% if latest %}Tulisan terbaru &middot; {{ latest.title }} &middot; {{ latest.date | date: "%-d %B %Y" }}{% endif %}
-</div>
-{% endif %}
+
+<div class="scrim" hidden></div>
+<nav class="drawer" id="drawer" aria-label="Menu utama">
+  <div class="drawer-top">
+    <span class="drawer-brand">{% include wordmark.html %}</span>
+    <button class="drawer-close" type="button" aria-label="Tutup menu">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </div>
+  <ul class="drawer-list">
+    {% for item in site.nav %}
+    {% assign active = false %}
+    {% if page.url == item.url %}{% assign active = true %}{% endif %}
+    {% if item.url == '/' and paginator %}{% assign active = true %}{% endif %}
+    <li>
+      <a href="{{ item.url | relative_url }}"{% if active %} class="is-active" aria-current="page"{% endif %}>
+        <span class="drawer-title">{{ item.title }}</span>
+        {% if item.desc %}<span class="drawer-desc">{{ item.desc }}</span>{% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="drawer-note">{{ site.description }}</p>
+</nav>

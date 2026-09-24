@@ -2,28 +2,26 @@
 layout: default
 title: Beranda
 ---
-<section class="post-list">
+{% if paginator.page == 1 %}
+<p class="strap">{{ site.description }}</p>
+{% endif %}
+
+<section class="post-list" aria-label="Daftar tulisan">
   {% for post in paginator.posts %}
-  <article class="post-preview">
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    <p class="post-meta">
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
-      {% if post.category %} · {{ post.category }}{% endif %}
-    </p>
-    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-    <a class="read-more" href="{{ post.url | relative_url }}">Baca selengkapnya &rarr;</a>
-  </article>
+    {% assign is_lead = false %}
+    {% if forloop.first and paginator.page == 1 %}{% assign is_lead = true %}{% endif %}
+    {% include post-card.html post=post lead=is_lead uid=forloop.index %}
   {% endfor %}
 
   {% if paginator.total_pages > 1 %}
-  <nav class="pagination">
+  <nav class="pagination" aria-label="Halaman">
     {% if paginator.previous_page %}
       <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Sebelumnya</a>
-    {% endif %}
-    <span>Halaman {{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% else %}<span></span>{% endif %}
+    <span>Halaman {{ paginator.page }} dari {{ paginator.total_pages }}</span>
     {% if paginator.next_page %}
       <a href="{{ paginator.next_page_path | relative_url }}">Selanjutnya &rarr;</a>
-    {% endif %}
+    {% else %}<span></span>{% endif %}
   </nav>
   {% endif %}
 </section>

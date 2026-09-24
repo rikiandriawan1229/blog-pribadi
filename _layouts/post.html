@@ -3,14 +3,21 @@ layout: default
 ---
 <article class="post">
   <header class="post-header">
+    {% if page.category %}<p class="kicker">{{ page.category }}</p>{% endif %}
     <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%-d %B %Y" }}
-      </time>
-      {% if page.category %} · <span class="post-category">{{ page.category }}</span>{% endif %}
+    <p class="meta">
+      <span>Oleh {{ page.author | default: site.author.name }}</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
     </p>
   </header>
+
+  {% if page.image %}
+    {% if page.image contains '://' %}{% assign img = page.image %}{% else %}{% assign img = page.image | relative_url %}{% endif %}
+    <figure class="post-media">
+      <img src="{{ img }}" alt="{{ page.image_alt | default: page.title }}">
+      {% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}
+    </figure>
+  {% endif %}
 
   <div class="post-content">
     {{ content }}
@@ -18,7 +25,7 @@ layout: default
 
   {% if page.sources %}
   <section class="post-sources">
-    <h3>Sumber &amp; Referensi</h3>
+    <h3>Sumber dan referensi</h3>
     <ul>
       {% for src in page.sources %}
       <li><a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.name }}</a></li>

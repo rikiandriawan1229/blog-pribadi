@@ -1,4 +1,5 @@
 title: "Catatan Verify-Or"
+short_name: "VOr"
 description: "Tulisan pribadi berisi olahan informasi, analisis, dan pandangan pribadi dengan fakta yang dapat dipertanggungjawabkan."
 url: "https://verify-or.duckdns.org"
 baseurl: ""
@@ -6,6 +7,30 @@ baseurl: ""
 # Author
 author:
   name: "Penulis"
+
+# Alamat email untuk halaman Kontak (kosongkan jika belum ada)
+email: ""
+
+# Menu yang tampil di panel kiri (ikon garis tiga)
+nav:
+  - title: Beranda
+    url: /
+    desc: Tulisan terbaru
+  - title: Topik
+    url: /topik/
+    desc: Tulisan per kategori
+  - title: Arsip
+    url: /arsip/
+    desc: Semua tulisan menurut waktu
+  - title: Metode & Sumber
+    url: /metode/
+    desc: Cara tulisan diperiksa
+  - title: Tentang
+    url: /about/
+    desc: Tentang blog ini
+  - title: Kontak
+    url: /kontak/
+    desc: Koreksi dan masukan
 
 # Build settings
 markdown: kramdown
