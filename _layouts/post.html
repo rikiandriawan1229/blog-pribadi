@@ -12,11 +12,12 @@ layout: default
   </header>
 
   {% if page.image %}
-    {% if page.image contains '://' %}{% assign img = page.image %}{% else %}{% assign img = page.image | relative_url %}{% endif %}
-    <figure class="post-media">
-      <img src="{{ img }}" alt="{{ page.image_alt | default: page.title }}">
-      {% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}
-    </figure>
+  {% if page.image contains '://' %}{% assign img = page.image %}{% else %}{% assign img = page.image | relative_url
+  %}{% endif %}
+  <figure class="post-media">
+    <img src="{{ img }}" alt="{{ page.image_alt | default: page.title }}">
+    {% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}
+  </figure>
   {% endif %}
 
   <div class="post-content">

@@ -1,8 +1,9 @@
-title: "Catatan Verify-Or"
+title: "Catatan Duck"
 short_name: "VOr"
-description: "Tulisan pribadi berisi olahan informasi, analisis, dan pandangan pribadi dengan fakta yang dapat dipertanggungjawabkan."
+description: "Kebenaran dalam sebuah pilihan — tulisan pribadi berisi olahan informasi, analisis, dan pandangan yang dapat dipertanggungjawabkan."
 url: "https://verify-or.duckdns.org"
 baseurl: ""
+logo: "/assets/images/og-default.png"
 
 # Author
 author:
