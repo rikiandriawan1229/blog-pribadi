@@ -24,9 +24,9 @@
   </div>
   <ul class="drawer-list">
     {% for item in site.nav %}
+    {% if item.url == '/' %}{% continue %}{% endif %}
     {% assign active = false %}
     {% if page.url == item.url %}{% assign active = true %}{% endif %}
-    {% if item.url == '/' and paginator %}{% assign active = true %}{% endif %}
     <li>
       <a href="{{ item.url | relative_url }}" {% if active %} class="is-active" aria-current="page" {% endif %}>
         <span class="drawer-title">{{ item.title }}</span>
