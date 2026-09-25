@@ -1,0 +1,16 @@
+{%- comment -%}
+Unit iklan dalam-konten (in-content ad), dapat dipakai di post.html, page.html,
+atau index.html. WAJIB diberi label "Iklan" agar jelas terpisah dari konten
+editorial (syarat kebijakan AdSense: iklan harus mudah dibedakan dari konten).
+
+Cara pakai: {% include ad-unit.html slot="0000000000" format="auto" %}
+Ganti data-ad-slot="0000000000" dengan Slot ID unit "Display" dari dashboard
+AdSense Anda. data-ad-client otomatis mengikuti Publisher ID di default.html.
+{%- endcomment -%}
+<div class="ad-unit">
+  <span class="ad-label">Iklan</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7409236864532850"
+    data-ad-slot="{{ include.slot | default: '0000000000' }}" data-ad-format="{{ include.format | default: 'auto' }}"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>

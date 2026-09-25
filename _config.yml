@@ -10,7 +10,7 @@ author:
   name: "Penulis"
 
 # Alamat email untuk halaman Kontak (kosongkan jika belum ada)
-email: ""
+email: "rikiandriawan66@gmail.com"
 
 # Menu yang tampil di panel kiri (ikon garis tiga)
 nav:
@@ -32,6 +32,12 @@ nav:
   - title: Kontak
     url: /kontak/
     desc: Koreksi dan masukan
+  - title: Kebijakan Privasi
+    url: /privasi/
+    desc: Cookie dan data pengunjung
+  - title: Syarat & Ketentuan
+    url: /syarat/
+    desc: Ketentuan penggunaan situs
 
 # Build settings
 markdown: kramdown

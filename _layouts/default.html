@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="icon" type="image/png" href="{{ '/assets/images/og-default.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/images/og-default.png' | relative_url }}">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7409236864532850" crossorigin="anonymous"></script>
   <noscript><style>.menu-btn,.drawer-close{display:none}.drawer{position:static;transform:none;visibility:visible;width:auto;border:0;border-bottom:3px solid}.more-btn{display:none}</style></noscript>
   {% feed_meta %}
   {% seo %}
@@ -15,6 +16,7 @@
 <body class="layout-{{ page.layout }}">
   <a class="skip-link" href="#konten">Lewati ke konten</a>
   {% include header.html %}
+  {% include ad-rail.html %}
   <main class="wrapper" id="konten">
     {{ content }}
   </main>

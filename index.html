@@ -12,6 +12,10 @@ title: Beranda
     {% include post-card.html post=lead variant="lead" %}
   {%- endif -%}
 
+  {% if paginator.page == 1 %}
+  {% include ad-unit.html slot="0000000001" %}
+  {% endif %}
+
   {% if rest.size > 0 %}
   <div class="story-grid">
     {% for post in rest %}

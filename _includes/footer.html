@@ -1,5 +1,12 @@
 <footer class="site-footer">
-  <div class="wrapper">
+  <div class="wrapper footer-inner">
     <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+    <nav class="footer-legal" aria-label="Tautan legal">
+      <a href="{{ '/privasi/' | relative_url }}">Kebijakan Privasi</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ '/syarat/' | relative_url }}">Syarat & Ketentuan</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ '/kontak/' | relative_url }}">Kontak</a>
+    </nav>
   </div>
 </footer>
