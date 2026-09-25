@@ -8,8 +8,8 @@
       <span class="menu-label">Menu</span>
     </button>
 
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="V-OR, kebenaran dalam sebuah pilihan. Ke beranda">
-      {% include wordmark.html %}
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}, kebenaran dalam sebuah pilihan. Ke beranda">
+      <span class="brand-mark">{{ site.title }}</span>
     </a>
 
     <span class="header-end"></span>
@@ -19,7 +19,7 @@
 <div class="scrim" hidden></div>
 <nav class="drawer" id="drawer" aria-label="Menu utama">
   <div class="drawer-top">
-    <span class="drawer-brand">{% include wordmark.html %}</span>
+    <span class="drawer-brand brand-mark">{{ site.title }}</span>
     <button class="drawer-close" type="button" aria-label="Tutup menu">
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
         <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none" />

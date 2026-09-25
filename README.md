@@ -7,7 +7,7 @@ Starter Jekyll untuk blog tulisan pribadi, di-hosting via GitHub Pages dengan do
 ```
 .
 ├── _config.yml        # Konfigurasi situs
-├── _includes/          # Komponen (header + menu, footer, wordmark, kartu tulisan)
+├── _includes/          # Komponen (header + menu, footer, kartu tulisan)
 ├── _layouts/            # Template halaman (default, post, page)
 ├── _posts/              # Semua tulisan (format: YYYY-MM-DD-judul.md)
 ├── assets/css/         # Stylesheet
@@ -58,7 +58,7 @@ image_caption: "Keterangan gambar (opsional)"
 ```
 
 Gambar tampil di sebelah kanan cuplikan di beranda dan di atas isi pada halaman tulisan.
-Tanpa `image`, tampil blok pengganti berlogo VOr.
+Tanpa `image`, tampil blok pengganti berisi `og-default.png`.
 
 ## Cuplikan di Beranda
 

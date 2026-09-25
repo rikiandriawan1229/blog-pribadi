@@ -61,40 +61,16 @@ a {
   top: 1rem;
 }
 
-/* ---------- Wordmark VOr ---------- */
-.vor {
-  display: inline-flex;
-  align-items: baseline;
+/* ---------- Wordmark Catatan Duck ---------- */
+.brand-mark {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-style: italic;
   line-height: 1;
   font-size: var(--vor-size, 1.6rem);
   color: var(--text);
   user-select: none;
-}
-
-.vor-v {
-  font-family: var(--black);
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  margin-right: .02em;
-}
-
-.vor-o {
-  width: .8em;
-  height: .8em;
-  margin: 0 .03em -.045em;
-  align-self: baseline;
-  flex: none;
-}
-
-.vor-mark {
-  stroke: var(--vor-mark-color);
-}
-
-.vor-r {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 700;
-  margin-left: .01em;
 }
 
 /* ---------- Header ---------- */
@@ -423,13 +399,6 @@ main.wrapper {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   background: var(--soft);
-}
-
-.story-ph {
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  --vor-size: 2.2rem;
 }
 
 .story-title {

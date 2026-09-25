@@ -6,7 +6,8 @@
       {% if p.image contains '://' %}{% assign img = p.image %}{% else %}{% assign img = p.image | relative_url %}{% endif %}
       <img src="{{ img }}" alt="" loading="{% if variant == 'lead' %}eager{% else %}lazy{% endif %}">
     {% else %}
-      <span class="story-ph">{% include wordmark.html %}</span>
+      <img class="story-ph" src="{{ '/assets/images/og-default.png' | relative_url }}" alt=""
+        loading="{% if variant == 'lead' %}eager{% else %}lazy{% endif %}">
     {% endif %}
   </a>
 
