@@ -2,16 +2,23 @@
 layout: default
 title: Beranda
 ---
-{% if paginator.page == 1 %}
-<p class="strap">{{ site.description }}</p>
-{% endif %}
+<section class="front" aria-label="Daftar tulisan">
+  {%- assign posts = paginator.posts -%}
+  {%- assign rest = posts -%}
 
-<section class="post-list" aria-label="Daftar tulisan">
-  {% for post in paginator.posts %}
-    {% assign is_lead = false %}
-    {% if forloop.first and paginator.page == 1 %}{% assign is_lead = true %}{% endif %}
-    {% include post-card.html post=post lead=is_lead uid=forloop.index %}
-  {% endfor %}
+  {%- if paginator.page == 1 and posts.size > 0 -%}
+    {%- assign lead = posts.first -%}
+    {%- assign rest = posts | slice: 1, posts.size -%}
+    {% include post-card.html post=lead variant="lead" %}
+  {%- endif -%}
+
+  {% if rest.size > 0 %}
+  <div class="story-grid">
+    {% for post in rest %}
+      {% include post-card.html post=post variant="grid" %}
+    {% endfor %}
+  </div>
+  {% endif %}
 
   {% if paginator.total_pages > 1 %}
   <nav class="pagination" aria-label="Halaman">

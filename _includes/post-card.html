@@ -1,34 +1,28 @@
 {%- assign p = include.post -%}
-{%- assign uid = include.uid -%}
-<article class="card{% if include.lead %} card-lead{% endif %}">
-  <div class="card-text">
+{%- assign variant = include.variant | default: "grid" -%}
+<article class="story story--{{ variant }}">
+  <a class="story-media" href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    {% if p.image %}
+      {% if p.image contains '://' %}{% assign img = p.image %}{% else %}{% assign img = p.image | relative_url %}{% endif %}
+      <img src="{{ img }}" alt="" loading="{% if variant == 'lead' %}eager{% else %}lazy{% endif %}">
+    {% else %}
+      <span class="story-ph">{% include wordmark.html %}</span>
+    {% endif %}
+  </a>
+
+  <div class="story-body">
     {% if p.category %}<p class="kicker">{{ p.category }}</p>{% endif %}
-    <h2><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h2>
+    <h2 class="story-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h2>
+
+    {% if variant != "small" %}
+    <p class="story-excerpt">
+      {% if p.summary %}{{ p.summary }}{% else %}{{ p.excerpt | strip_html | truncatewords: 30 }}{% endif %}
+    </p>
+    {% endif %}
+
     <p class="meta">
       <span>Oleh {{ p.author | default: site.author.name }}</span>
       <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%-d %B %Y" }}</time>
     </p>
-
-    <div class="card-excerpt" id="isi-{{ uid }}-ringkas">
-      {% if p.summary %}<p>{{ p.summary }}</p>{% else %}{{ p.excerpt }}{% endif %}
-    </div>
-    <div class="card-full" id="isi-{{ uid }}-penuh" hidden>
-      {{ p.content }}
-    </div>
-
-    <div class="card-actions">
-      <button class="more-btn" type="button" aria-expanded="false"
-              data-target="isi-{{ uid }}" data-more="Selengkapnya" data-less="Ringkas">Selengkapnya</button>
-      <a class="open-link" href="{{ p.url | relative_url }}">Buka halaman tulisan</a>
-    </div>
   </div>
-
-  <figure class="card-media">
-    {% if p.image %}
-      {% if p.image contains '://' %}{% assign img = p.image %}{% else %}{% assign img = p.image | relative_url %}{% endif %}
-      <img src="{{ img }}" alt="{{ p.image_alt | default: p.title }}" loading="{% if include.lead %}eager{% else %}lazy{% endif %}">
-    {% else %}
-      <div class="ph" aria-hidden="true">{% include wordmark.html %}</div>
-    {% endif %}
-  </figure>
 </article>

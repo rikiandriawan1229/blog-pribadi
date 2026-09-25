@@ -42,27 +42,4 @@
       if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeMenu();
     });
   }
-
-  /* ---------- Selengkapnya / Ringkas ---------- */
-  document.querySelectorAll('.more-btn').forEach(function (btn) {
-    var base = btn.getAttribute('data-target');
-    var short = document.getElementById(base + '-ringkas');
-    var full = document.getElementById(base + '-penuh');
-    if (!short || !full) return;
-
-    btn.addEventListener('click', function () {
-      var expand = btn.getAttribute('aria-expanded') !== 'true';
-      short.hidden = expand;
-      full.hidden = !expand;
-      btn.setAttribute('aria-expanded', String(expand));
-      btn.textContent = expand ? btn.getAttribute('data-less') : btn.getAttribute('data-more');
-
-      if (!expand) {
-        var card = btn.closest('.card');
-        if (card && card.getBoundingClientRect().top < 0) {
-          card.scrollIntoView({ block: 'start' });
-        }
-      }
-    });
-  });
 })();
