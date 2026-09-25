@@ -1,18 +1,14 @@
 <header class="site-header">
-  <div class="wrapper header-inner">
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer">
+  <div class="header-start">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Buka menu">
       <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
         <path d="M3 6.5h18M3 12h18M3 17.5h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
           fill="none" />
       </svg>
-      <span class="menu-label">Menu</span>
+      <img class="menu-favicon" src="{{ '/assets/images/favicon.png' | relative_url }}" alt="">
     </button>
 
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}, kebenaran dalam sebuah pilihan. Ke beranda">
-      <span class="brand-mark">{{ site.title }}</span>
-    </a>
-
-    <span class="header-end"></span>
+    <a class="home-link" href="{{ '/' | relative_url }}">Beranda</a>
   </div>
 </header>
 

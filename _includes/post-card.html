@@ -3,11 +3,12 @@
 <article class="story story--{{ variant }}">
   <a class="story-media" href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
     {% if p.image %}
-      {% if p.image contains '://' %}{% assign img = p.image %}{% else %}{% assign img = p.image | relative_url %}{% endif %}
-      <img src="{{ img }}" alt="" loading="{% if variant == 'lead' %}eager{% else %}lazy{% endif %}">
+    {% if p.image contains '://' %}{% assign img = p.image %}{% else %}{% assign img = p.image | relative_url %}{% endif
+    %}
+    <img src="{{ img }}" alt="" loading="{% if variant == 'lead' %}eager{% else %}lazy{% endif %}">
     {% else %}
-      <img class="story-ph" src="{{ '/assets/images/og-default.png' | relative_url }}" alt=""
-        loading="{% if variant == 'lead' %}eager{% else %}lazy{% endif %}">
+    <img class="story-ph" src="{{ '/assets/images/og-default.png' | relative_url }}" alt=""
+      loading="{% if variant == 'lead' %}eager{% else %}lazy{% endif %}">
     {% endif %}
   </a>
 
@@ -19,6 +20,7 @@
     <p class="story-excerpt">
       {% if p.summary %}{{ p.summary }}{% else %}{{ p.excerpt | strip_html | truncatewords: 30 }}{% endif %}
     </p>
+    <a class="story-more" href="{{ p.url | relative_url }}">Selengkapnya →</a>
     {% endif %}
 
     <p class="meta">
