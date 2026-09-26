@@ -7,8 +7,8 @@
   --soft: #f0f0ed;
   --accent: #0a7a5a;
   --vor-mark-color: #B8860B;
-  --serif: Georgia, 'Times New Roman', serif;
-  --sans: 'Helvetica Neue', Arial, sans-serif;
+  --serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --black: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
   --max-width: 1040px;
 }
